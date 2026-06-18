@@ -12,7 +12,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "amaezoverse": "file:..",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.2",
     "chalk": "^5.3.0",
