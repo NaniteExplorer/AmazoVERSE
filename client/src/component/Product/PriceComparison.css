@@ -1,0 +1,107 @@
+.priceComparison {
+  margin: 2vmax 0;
+  padding: 1.5vmax;
+  border: 1px solid #e1e1e1;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.priceComparison__title {
+  font: 500 1.3vmax "Roboto", sans-serif;
+  color: #333;
+  margin-bottom: 1vmax;
+}
+
+.priceComparison__demoNote {
+  font-size: 0.8vmax;
+  color: #888;
+  font-weight: 400;
+}
+
+.priceComparison__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.priceComparison__row {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: center;
+  gap: 1vmax;
+  padding: 1vmax;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.priceComparison__row--best {
+  background: #f3fbf4;
+  border-radius: 6px;
+}
+
+.priceComparison__seller {
+  display: flex;
+  align-items: center;
+  gap: 0.6vmax;
+  font: 400 1vmax "Roboto", sans-serif;
+  color: #222;
+}
+
+.priceComparison__seller img {
+  width: 1.6vmax;
+  height: 1.6vmax;
+  object-fit: contain;
+}
+
+.priceComparison__badge {
+  background: #2e7d32;
+  color: #fff;
+  font-size: 0.75vmax;
+  padding: 0.2vmax 0.5vmax;
+  border-radius: 10px;
+}
+
+.priceComparison__price {
+  font: 600 1.1vmax "Roboto", sans-serif;
+  color: #111;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.priceComparison__oos {
+  font-size: 0.75vmax;
+  color: #c0392b;
+  font-style: normal;
+}
+
+.priceComparison__cta {
+  background: tomato;
+  color: #fff;
+  text-decoration: none;
+  padding: 0.6vmax 1.2vmax;
+  border-radius: 20px;
+  font: 500 0.9vmax "Roboto", sans-serif;
+  white-space: nowrap;
+}
+
+.priceComparison__cta--here {
+  background: #232f3e;
+}
+
+@media screen and (max-width: 600px) {
+  .priceComparison__title {
+    font-size: 18px;
+  }
+  .priceComparison__seller,
+  .priceComparison__price {
+    font-size: 14px;
+  }
+  .priceComparison__cta {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+  .priceComparison__badge,
+  .priceComparison__oos {
+    font-size: 10px;
+  }
+}

@@ -1,0 +1,36 @@
+.speedDial{
+    position: fixed;
+    right: 3vmax;
+    top: 3vmax;
+}
+
+.speedDialIcon{
+    width: 56px;
+    height: 56px;
+    border-radius: 100%;
+}
+
+.active span{
+    background-color: yellowgreen;
+    z-index: -100;
+}
+
+.link span {
+    background-color: white;
+    z-index: -100;
+}
+
+.menuBurgerItem{
+    height: 0.15vmax;
+    width: 2vmax;
+}
+
+.menuBurger{
+    width: 3.2vmax;
+    height: 1.5vmax;
+    top: 0.5vmax;
+    left: 1vmax;
+}
+ 
+
+ 

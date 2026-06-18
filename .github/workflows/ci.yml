@@ -1,0 +1,50 @@
+name: CI
+
+# Runs on pull requests and pushes to main. This is a quality gate only —
+# it does NOT deploy. Deployment is handled automatically by Vercel's Git
+# integration when you push/merge.
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+jobs:
+  client-build:
+    name: Client build
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: client
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: npm
+          cache-dependency-path: client/package-lock.json
+      - run: npm ci
+      # CI=false so pre-existing CRA lint warnings don't fail the build.
+      # Tighten to CI=true once the warnings are cleaned up.
+      - run: CI=false npm run build
+
+  server-check:
+    name: Server import check
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: server
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: npm
+          cache-dependency-path: server/package-lock.json
+      - run: npm ci
+      # Import the Express app (no DB connection) to verify the whole ESM
+      # module graph resolves and compiles.
+      - name: Verify app imports
+        env:
+          VERCEL: "1"
+        run: node --input-type=module -e "import('./src/app.js').then(() => console.log('server app imports OK'))"
